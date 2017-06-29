@@ -6,7 +6,7 @@
 #    By: thou <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/04 17:35:06 by thou              #+#    #+#              #
-#    Updated: 2017/06/29 16:41:43 by ibtraore         ###   ########.fr        #
+#    Updated: 2017/06/29 18:16:17 by thou             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,9 @@ $(LFT):
 	@make -C $(LIBFT)
 
 $(LMLX):
-	@make -C $(LIBMLX)
+	@echo "make libmlx ..."
+	@make -C $(LIBMLX) 1>/dev/null 2>&1
+	@echo "\033[1A\033[48;5;15;38;5;25;1mMAKE LIBMLX DONE$(RESET)"
 
 $(NAME): $(OBJ)
 	@gcc $(FLAG) $(OBJ) -o $(NAME) -L$(LIBFT) -lft -L$(LIBMLX) $(FLAGMLX) $(INCLUDES)
@@ -63,7 +65,8 @@ clean:
 
 fclean: 
 	@make fclean -C $(LIBFT)
-	@make clean -C $(LIBMLX)
+	@make clean -C $(LIBMLX) 1>/dev/null
+	@echo "$(YELLOW)Clean   LIBMLX$(GREEN)			[ OK ]$(RESET)"
 	@rm -rf obj
 	@rm -rf $(NAME)
 	@echo "$(YELLOW)Clean	$(NAME)$(GREEN)			[ OK ]$(RESET)"
