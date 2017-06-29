@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/18 16:50:30 by thou              #+#    #+#             */
-/*   Updated: 2017/06/29 12:25:27 by thou             ###   ########.fr       */
+/*   Updated: 2017/06/29 13:35:31 by ibtraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define ORANGE		0xF78C01
 # define RED		0xFE4D01
 
+# define BIAS		0.001
 # define LIGHT		1
 # define PLANE		2
 # define CYLINDER	3
@@ -111,6 +112,7 @@ typedef struct			s_obj
 	double				ambient;
 	double				diffuse;
 	double				specular;
+	double				indice;
 	int					current;
 }						t_obj;
 
@@ -129,6 +131,11 @@ typedef struct			s_hit
 	t_vector			normal;
 	t_color				color;
 	double				t;
+
+	double				n1;
+	double				n2;
+	double				cosi;
+	double				cost;
 }						t_hit;
 
 typedef struct			s_mlx
@@ -165,6 +172,9 @@ typedef struct			s_env
 	int					l;
 	int					total_light;
 	int					help;
+
+	double				krefl;
+	double				krefr;
 }						t_env;
 
 /*
@@ -213,7 +223,7 @@ int						clicked_obj_info(int x, int y, t_env *e);
 */
 
 void					pixel_put(int x, int y, t_color col, t_mlx *mlx);
-
+void					get_fresnel_coef(t_env *e, t_hit hit);
 /*
 **			file_to_obj.c
 */
@@ -284,6 +294,9 @@ void					put_image(t_env *e);
 */
 
 void					current_ray(double x, double y, t_env *e, t_ray *ray);
+t_ray					reflection_ray(t_ray ray, t_hit hit);
+t_ray					refraction_ray(t_ray ray, t_hit hit, t_obj *hit_obj,
+						t_env *e);
 
 /*
 **			rotate_event.c

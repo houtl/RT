@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 18:22:35 by thou              #+#    #+#             */
-/*   Updated: 2017/05/22 13:18:08 by thou             ###   ########.fr       */
+/*   Updated: 2017/06/29 13:32:42 by ibtraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,21 @@ void		get_hit_point_info(t_hit *hit_point, t_obj *obj, t_ray *ray)
 	get_hit_point_info1(hit_point, obj, ray);
 	get_hit_point_info2(hit_point, obj, ray);
 	normalize(&hit_point->normal);
+	/*Ajouter ce soir Jeudi 28 juin */
+	hit_point->cosi = prodscal(&hit_point->ray_origin->dir, &hit_point->normal);
+	if (hit_point->cosi > 0.0)
+	{
+		hit_point->n1 = 1.0;
+		hit_point->n2 = obj->indice;
+		hit_point->normal = opposite(&hit_point->normal);
+	}
+	else
+	{
+		hit_point->n1  = obj->indice;
+		hit_point->n2 = 1.0;
+		hit_point->cosi *= -1.0;
+	}
+	n = hit_point->n1 / hit_point->n2;
+	tmp = n * n * (1.0 - (hit_point->cosi * hit_point->cosi));
+	hit_point->cost = sqrtf(1.0 - tmp);
 }

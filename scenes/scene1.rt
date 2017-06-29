@@ -42,5 +42,6 @@ content
 		ambient(0.1)
 		diffuse(0.5)
 		specular(0.2)
+		indice(1.5)
 	}
 }
