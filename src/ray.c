@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 18:23:43 by thou              #+#    #+#             */
-/*   Updated: 2017/06/29 13:54:51 by ibtraore         ###   ########.fr       */
+/*   Updated: 2017/06/29 14:04:07 by ibtraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ t_ray	reflection_ray(t_ray ray, t_hit hit)
 	return (refl_ray);
 }
 
-t_ray	refraction_ray(t_ray ray, t_hit hit, t_obj *hit_obj, t_env *e)
+t_ray	refraction_ray(t_ray ray, t_hit hit, t_env *e)
 {
 	t_ray		refr_ray;
 	double		n;
@@ -77,6 +77,6 @@ t_ray	refraction_ray(t_ray ray, t_hit hit, t_obj *hit_obj, t_env *e)
 	normalize(&refr_ray.dir);
 	offset = (t_vector){ray.dir.x * BIAS, ray.dir.y * BIAS, ray.dir.z * BIAS};
 	refr_ray.pos = (t_vector){hit.point.x - offset.x, hit.point.y - offset.y,
-		hit.point.z - offset.z}
+		hit.point.z - offset.z};
 	return (refr_ray);
 }

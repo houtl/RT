@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/18 16:50:30 by thou              #+#    #+#             */
-/*   Updated: 2017/06/29 13:35:31 by ibtraore         ###   ########.fr       */
+/*   Updated: 2017/06/29 14:04:43 by ibtraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -295,8 +295,7 @@ void					put_image(t_env *e);
 
 void					current_ray(double x, double y, t_env *e, t_ray *ray);
 t_ray					reflection_ray(t_ray ray, t_hit hit);
-t_ray					refraction_ray(t_ray ray, t_hit hit, t_obj *hit_obj,
-						t_env *e);
+t_ray					refraction_ray(t_ray ray, t_hit hit, t_env *e);
 
 /*
 **			rotate_event.c

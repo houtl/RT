@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 18:22:35 by thou              #+#    #+#             */
-/*   Updated: 2017/06/29 13:32:42 by ibtraore         ###   ########.fr       */
+/*   Updated: 2017/06/29 14:11:26 by ibtraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,9 @@ static void	get_hit_point_info2(t_hit *hit_point, t_obj *obj, t_ray *ray)
 
 void		get_hit_point_info(t_hit *hit_point, t_obj *obj, t_ray *ray)
 {
+	double	n;
+	double	tmp;
+
 	hit_point->ray_origin = ray;
 	hit_point->point.x = ray->pos.x + hit_point->t * ray->dir.x;
 	hit_point->point.y = ray->pos.y + hit_point->t * ray->dir.y;
