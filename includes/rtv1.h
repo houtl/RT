@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/18 16:50:30 by thou              #+#    #+#             */
-/*   Updated: 2017/06/29 16:05:55 by thou             ###   ########.fr       */
+/*   Updated: 2017/06/29 16:12:28 by ibtraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <math.h>
 # include "mlx_key.h"
 
+# define MAX_DEPTH 5
 # define WHITE		0xFFFFFF
 # define BLUE		0x0901F7
 # define BLUE_C		0x015BF7

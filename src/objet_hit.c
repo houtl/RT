@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 18:23:31 by thou              #+#    #+#             */
-/*   Updated: 2017/06/29 15:27:55 by ibtraore         ###   ########.fr       */
+/*   Updated: 2017/06/29 16:35:08 by ibtraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ static void		check_t(t_env *env, double sum[3], t_ray ray, t_obj *hit_obj)
 	t_color	color;
 	int		depth;
 
+	(void)hit_obj;
 	depth = 0;
 	recursif_trajet(ray, depth, env);
 	//if (0.0001 < env->t && env->t < 8000.0)
