@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 18:21:09 by thou              #+#    #+#             */
-/*   Updated: 2017/06/29 13:51:18 by thou             ###   ########.fr       */
+/*   Updated: 2017/06/29 14:14:04 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static int	get_obj(t_list **obj, const char **tab, int *i)
 			return (0);
 		if (0 == get_light_info(new, tab, i))
 			return (0);
-		if (0 == get_interphace_info(new, tab, i))
+		if (0 == get_indice(new, tab, i))
 			return (0);
 	}
 	if (ft_strcmp("\t}", tab[*(i++)]))

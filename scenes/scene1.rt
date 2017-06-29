@@ -24,6 +24,7 @@ content
 		ambient(0.1)
 		diffuse(0.2)
 		specular(0.1)
+		indice(1.5)
 	}
 	plane
 	{
@@ -33,6 +34,7 @@ content
 		ambient(0.1)
 		diffuse(0.2)
 		specular(0.1)
+		indice(1.5)
 	}
 	sphere
 	{

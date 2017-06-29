@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/18 16:50:30 by thou              #+#    #+#             */
-/*   Updated: 2017/06/29 14:04:43 by ibtraore         ###   ########.fr       */
+/*   Updated: 2017/06/29 14:16:14 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -244,6 +244,7 @@ double					ft_atof(const char *nb, int *i);
 int						get_colpos(t_obj *obj, const char **tab, int *i);
 int						get_size(t_obj *obj, const char **tab, int *i);
 int						get_rot(t_obj *obj, const char **tab, int *i);
+int						get_indice(t_obj *obj, const char **tab, int *i);
 
 /*
 **			get_light.c
