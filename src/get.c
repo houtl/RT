@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 18:21:29 by thou              #+#    #+#             */
-/*   Updated: 2017/06/29 13:07:57 by ibtraore         ###   ########.fr       */
+/*   Updated: 2017/06/29 14:10:20 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ int	get_size(t_obj *obj, const char **tab, int *i)
 		return (0);
 	j = 7;
 	obj->size = ft_atof(tab[*i], &j);
-	while (ft_isdigit(tab[*i][j]))
-		++j;
 	if (')' != tab[*i][j] || '\0' != tab[*i][j + 1])
 		return (0);
 	++(*i);
@@ -62,6 +60,19 @@ int	get_rot(t_obj *obj, const char **tab, int *i)
 		return (0);
 	j = 6;
 	SAFEMALL0((input_vector(tab[*i], &j, &obj->rot)));
+	++(*i);
+	return (1);
+}
+
+int get_indice(t_obj *obj, const char **tab, int *i)
+{
+	int j;
+	if (ft_strncmp("\t\tindice(", tab[*i], 9))
+		return (0);
+	j = 9;
+	obj->indice = ft_atof(tab[*i], &j);
+	if (')' != tab[*i][j] || '\0' != tab[*i][j + 1])
+		return (0);
 	++(*i);
 	return (1);
 }
