@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 18:19:31 by thou              #+#    #+#             */
-/*   Updated: 2017/05/22 13:21:51 by thou             ###   ########.fr       */
+/*   Updated: 2017/06/29 17:04:19 by ibtraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ double		find_closest_t(t_list *list, t_ray *ray, t_obj **hit_obj)
 	while (node)
 	{
 		obj = (t_obj *)node->content;
-		if (obj->name != LIGHT && 0 == obj->current)
+		if (obj->name != LIGHT /*&& 0 == obj->current*/)
 			get_tmp(&tmp, obj, ray);
 		if (0.0001 < tmp && tmp < t)
 		{
@@ -50,7 +50,7 @@ double		find_closest_t(t_list *list, t_ray *ray, t_obj **hit_obj)
 		}
 		node = node->next;
 	}
-	if (0.0001 < t && t < 8000.0 && (*hit_obj))
-		(*hit_obj)->current = 1;
+	//if (0.0001 < t && t < 8000.0 && (*hit_obj))
+	//	(*hit_obj)->current = 1;
 	return (t);
 }

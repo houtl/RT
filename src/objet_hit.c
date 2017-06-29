@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 18:23:31 by thou              #+#    #+#             */
-/*   Updated: 2017/06/29 16:35:08 by ibtraore         ###   ########.fr       */
+/*   Updated: 2017/06/29 17:42:02 by ibtraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #define ADD 1
 #define SUM 2
 
-static void		sum_color(double sum[3], t_color *c, double p, int flag)
+/*static void		sum_color(double sum[3], t_color *c, double p, int flag)
 {
 	if (INIT == flag)
 	{
@@ -36,16 +36,16 @@ static void		sum_color(double sum[3], t_color *c, double p, int flag)
 		c->g = sum[1] / p;
 		c->b = sum[2] / p;
 	}
-}
+}*/
 
-static void		check_t(t_env *env, double sum[3], t_ray ray, t_obj *hit_obj)
+/*static void		check_t(t_env *env, double sum[3], t_ray ray, t_obj *hit_obj)
 {
 	t_color	color;
 	int		depth;
 
 	(void)hit_obj;
 	depth = 0;
-	recursif_trajet(ray, depth, env);
+	color = recursif_trajet(ray, depth, env);
 	//if (0.0001 < env->t && env->t < 8000.0)
 //		color = lighting(env->obj, &hit_obj, ray, env->t);
 //	else
@@ -54,17 +54,18 @@ static void		check_t(t_env *env, double sum[3], t_ray ray, t_obj *hit_obj)
 	//	hit_obj->current = 0;
 	sum_color(sum, &color, env->p, ADD);
 }
-
+*/
 static t_color	get_pixel_color(t_env *env, int x, int y)
 {
 	double	sub[2];
 	t_ray	ray;
 	t_obj	*hit_obj;
-	double	sum[3];
+	//double	sum[3];
 	t_color	color;
 
 	sub[1] = y;
-	sum_color(sum, &color, env->p, INIT);
+	env->depth = 0;
+	//sum_color(sum, &color, env->p, INIT);
 	env->p = 0.0;
 	while (sub[1] < y + 1)
 	{
@@ -74,13 +75,14 @@ static t_color	get_pixel_color(t_env *env, int x, int y)
 			hit_obj = NULL;
 			current_ray(sub[0], sub[1], env, &ray);
 			env->t = find_closest_t(env->obj, &ray, &hit_obj);
-			check_t(env, sum, ray, hit_obj);
+			//check_t(env, sum, ray, hit_obj);
+			color = recursif_trajet(ray, env->depth, env);
 			sub[0] += 1.0 / env->aa;
 			env->p += 1;
 		}
 		sub[1] += 1.0 / env->aa;
 	}
-	sum_color(sum, &color, env->p, SUM);
+	//sum_color(sum, &color, env->p, SUM);
 	return (color);
 }
 

@@ -6,12 +6,12 @@
 /*   By: ibtraore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/29 15:43:49 by ibtraore          #+#    #+#             */
-/*   Updated: 2017/06/29 16:34:39 by ibtraore         ###   ########.fr       */
+/*   Updated: 2017/06/29 17:42:58 by ibtraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
-#define ADDCOL(x, a, b) add_col(x, a, b)
+#define ADDCOLS(x, a, b) add_col(x, a, b)
 #define SCACOL(a, b) scale_col(a, b)
 
 t_color		scale_col(double tmp, t_color col)
@@ -41,7 +41,6 @@ t_color		add_col(t_color amb, t_color a1, t_color a2)
 t_color		recursif_trajet(t_ray ray, int depth, t_env *env)
 {
 	t_color	color;
-	t_color	res;
 	t_obj	*hit_obj;
 	t_hit	hit;
 	double	t;
@@ -49,16 +48,23 @@ t_color		recursif_trajet(t_ray ray, int depth, t_env *env)
 	hit_obj = NULL;
 	if (depth > MAX_DEPTH)
 		return ((t_color){0, 0, 0});
-	else if ((t = find_closest_t(env->obj, &ray, &hit_obj))  && hit_obj)
+	t = find_closest_t(env->obj, &ray, &hit_obj);
+	if (0.0001 < t && t < 8000.0 && hit_obj)
 	{
 		hit.t = t;
-		color = lighting(env->obj, &hit_obj, ray, env->t);
 		get_hit_point_info(&hit, hit_obj, &ray);
+		color = lighting(env->obj, &hit_obj, ray, t);
+		//get_hit_point_info(&hit, hit_obj, &ray);
+		get_fresnel_coef(env, hit);
 		env->refl = reflection_ray(ray, hit);
 		env->refr = refraction_ray(ray, hit, env);
-		res = ADDCOL(color, SCACOL(env->krefl, recursif_trajet(env->refl, depth + 1 , env)),
-				SCACOL(env->krefr, recursif_trajet(env->refr, depth + 1, env)));
-		return (res);
+		//hit_obj->current = 0;
+		//return (color);
+		//if (hit_obj->name != PLANE)
+			return(ADDCOLS(color, SCACOL(env->krefl, recursif_trajet(env->refl, depth + 1 , env)),SCACOL(env->krefr, recursif_trajet(env->refr, depth + 1, env))));
+
+	//	else
+		//	return (color);
 	}
 	return ((t_color){0, 0, 0});
 }

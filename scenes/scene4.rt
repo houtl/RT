@@ -29,6 +29,7 @@ content
 		ambient(0.2)
 		diffuse(0.2)
 		specular(0.1)
+		indice(100)
 	}
 	plane
 	{
@@ -38,6 +39,7 @@ content
 		ambient(0.2)
 		diffuse(0.2)
 		specular(0.1)
+		indice(1.3)
 	}
 	plane
 	{
@@ -47,6 +49,7 @@ content
 		ambient(0.2)
 		diffuse(0.2)
 		specular(0.1)
+		indice(1.3)
 	}
 	plane
 	{
@@ -56,6 +59,7 @@ content
 		ambient(0.2)
 		diffuse(0.2)
 		specular(0.1)
+		indice(1.3)
 	}
 	plane
 	{
@@ -65,6 +69,7 @@ content
 		ambient(0.2)
 		diffuse(0.2)
 		specular(0.1)
+		indice(1.3)
 	}
 	sphere
 	{
@@ -74,6 +79,7 @@ content
 		ambient(0.2)
 		diffuse(0.7)
 		specular(0.1)
+		indice(1.3)
 	}
 	sphere
 	{
@@ -83,5 +89,6 @@ content
 		ambient(0.2)
 		diffuse(0.7)
 		specular(0.1)
+		indice(1.3)
 	}
 }

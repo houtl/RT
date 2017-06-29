@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/18 16:50:30 by thou              #+#    #+#             */
-/*   Updated: 2017/06/29 16:12:28 by ibtraore         ###   ########.fr       */
+/*   Updated: 2017/06/29 16:46:55 by ibtraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,6 +178,7 @@ typedef struct			s_env
 	t_ray				refr;
 	double				krefl;
 	double				krefr;
+	int					depth;
 }						t_env;
 
 /*

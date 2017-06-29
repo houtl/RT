@@ -6,7 +6,7 @@
 #    By: thou <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/04 17:35:06 by thou              #+#    #+#              #
-#    Updated: 2017/06/29 16:07:21 by thou             ###   ########.fr        #
+#    Updated: 2017/06/29 16:41:43 by ibtraore         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,7 @@ SRC_BASE	=	ft_atof.c inter_utils.c rotate_event.c\
 				closest_t.c file_to_obj.c translate_event.c\
 				color.c get.c copy.c get_light.c recursif.c\
 				main.c vector.c hook.c objet_hit.c draw.c inter.c ray.c\
-				display_cam_info.c get_scene.c vector2.c display_obj_info.c\
-				recursif.c
+				display_cam_info.c get_scene.c vector2.c display_obj_info.c
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ_DIR		=	obj/
 LIBFT		=	./libft

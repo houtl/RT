@@ -38,8 +38,18 @@ content
 	}
 	sphere
 	{
-		col(250 250 0)
+		col(250 0 0)
 		pos(0 0 0)
+		size(25)
+		ambient(0.1)
+		diffuse(0.5)
+		specular(0.2)
+		indice(1.5)
+	}
+	sphere
+	{
+		col(255 255 255)
+		pos(-70 60 0)
 		size(25)
 		ambient(0.1)
 		diffuse(0.5)
