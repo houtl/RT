@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/18 16:50:30 by thou              #+#    #+#             */
-/*   Updated: 2017/05/29 15:48:37 by thou             ###   ########.fr       */
+/*   Updated: 2017/06/29 12:25:27 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,7 @@ typedef struct			s_env
 {
 	t_mlx				mlx;
 	t_cam				cam;
-	t_obj				*obj;
+	t_list				*obj;
 	t_vector			n;
 	t_vector			r;
 	t_vector			up;
