@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/18 16:50:30 by thou              #+#    #+#             */
-/*   Updated: 2017/06/29 14:16:14 by thou             ###   ########.fr       */
+/*   Updated: 2017/06/29 15:33:26 by ibtraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,6 +173,8 @@ typedef struct			s_env
 	int					total_light;
 	int					help;
 
+	t_ray				refl;
+	t_ray				refr;
 	double				krefl;
 	double				krefr;
 }						t_env;
@@ -244,7 +246,6 @@ double					ft_atof(const char *nb, int *i);
 int						get_colpos(t_obj *obj, const char **tab, int *i);
 int						get_size(t_obj *obj, const char **tab, int *i);
 int						get_rot(t_obj *obj, const char **tab, int *i);
-int						get_indice(t_obj *obj, const char **tab, int *i);
 
 /*
 **			get_light.c
@@ -297,6 +298,12 @@ void					put_image(t_env *e);
 void					current_ray(double x, double y, t_env *e, t_ray *ray);
 t_ray					reflection_ray(t_ray ray, t_hit hit);
 t_ray					refraction_ray(t_ray ray, t_hit hit, t_env *e);
+
+/*
+ **		recursif.c
+ */
+
+t_color					recursif_trajet(t_ray ray, int depth, t_env *e);
 
 /*
 **			rotate_event.c

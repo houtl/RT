@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 18:23:31 by thou              #+#    #+#             */
-/*   Updated: 2017/05/29 15:05:43 by thou             ###   ########.fr       */
+/*   Updated: 2017/06/29 15:27:55 by ibtraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,16 @@ static void		sum_color(double sum[3], t_color *c, double p, int flag)
 static void		check_t(t_env *env, double sum[3], t_ray ray, t_obj *hit_obj)
 {
 	t_color	color;
+	int		depth;
 
-	if (0.0001 < env->t && env->t < 8000.0)
-		color = lighting(env->obj, &hit_obj, ray, env->t);
-	else
-		color = (t_color){0, 0, 0};
-	if (NULL != hit_obj)
-		hit_obj->current = 0;
+	depth = 0;
+	recursif_trajet(ray, depth, env);
+	//if (0.0001 < env->t && env->t < 8000.0)
+//		color = lighting(env->obj, &hit_obj, ray, env->t);
+//	else
+//		color = (t_color){0, 0, 0};
+	//if (NULL != hit_obj)
+	//	hit_obj->current = 0;
 	sum_color(sum, &color, env->p, ADD);
 }
 

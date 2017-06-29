@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 18:23:43 by thou              #+#    #+#             */
-/*   Updated: 2017/06/29 14:04:07 by ibtraore         ###   ########.fr       */
+/*   Updated: 2017/06/29 15:43:23 by ibtraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ t_ray	refraction_ray(t_ray ray, t_hit hit, t_env *e)
 	n = hit.n1 / hit.n2;
 	if (n == 1.0)
 		return ray;
-	if (1.0 - hit.cost * hit.cost < 0.0)
+	if (1.0 - (hit.cost * hit.cost) < 0.0)
 	{
 		e->krefl = 1.0;
 		e->krefr = 0.0;
