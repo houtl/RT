@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 18:20:32 by thou              #+#    #+#             */
-/*   Updated: 2017/05/29 15:07:06 by thou             ###   ########.fr       */
+/*   Updated: 2017/12/15 14:19:57 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,11 @@ static void	display_hit_obj_info(t_env *e)
 	x = ft_itoa(e->hit_obj->pos.x);
 	y = ft_itoa(e->hit_obj->pos.y);
 	z = ft_itoa(e->hit_obj->pos.z);
-	s1 = ft_strjoin(x, ",");
-	s2 = ft_strjoin(s1, y);
-	ft_strdel(&x);
-	ft_strdel(&s1);
-	s1 = ft_strjoin(s2, ",");
-	ft_strdel(&s2);
-	s2 = ft_strjoin(s1, z);
-	ft_strdel(&s1);
-	e->itoapos = ft_strjoin(s2, "]");
-	ft_strdel(&s2);
+	s1 = ft_strjoinfree(x, ",");
+	s2 = ft_strjoinfree2(s1, y);
+	s1 = ft_strjoinfree(s2, ",");
+	s2 = ft_strjoinfree2(s1, z);
+	e->itoapos = ft_strjoinfree(s2, "]");
 }
 
 void		display_info(t_env *e)
